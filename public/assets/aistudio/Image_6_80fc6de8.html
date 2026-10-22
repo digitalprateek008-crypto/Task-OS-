@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-surface antialiased" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Agency OS - My Tasks</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#ebf1ff",
+            "inverse-surface": "#273140",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#121c2a",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary": "#0d0400",
+            "on-tertiary-fixed-variant": "#613f20",
+            "outline-variant": "#c4c6ce",
+            "secondary": "#486800",
+            "surface-container-high": "#dfe9fc",
+            "on-primary-fixed-variant": "#364764",
+            "background": "#f8f9ff",
+            "on-tertiary-fixed": "#2e1500",
+            "surface": "#f8f9ff",
+            "on-surface-variant": "#44474d",
+            "on-secondary-fixed-variant": "#354e00",
+            "tertiary-fixed-dim": "#eebd94",
+            "tertiary-container": "#321800",
+            "primary-container": "#0b1f3a",
+            "tertiary-fixed": "#ffdcc1",
+            "on-tertiary-container": "#a87e59",
+            "primary-fixed-dim": "#b5c7ea",
+            "on-error": "#ffffff",
+            "primary-fixed": "#d6e3ff",
+            "secondary-container": "#b8f249",
+            "surface-container-low": "#eff3ff",
+            "primary": "#000615",
+            "surface-dim": "#d0daee",
+            "on-secondary-fixed": "#131f00",
+            "surface-bright": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#d9e3f6",
+            "error": "#ba1a1a",
+            "on-primary-container": "#7587a7",
+            "surface-container": "#e6eeff",
+            "on-primary-fixed": "#071c36",
+            "outline": "#75777e",
+            "surface-tint": "#4d5f7d",
+            "secondary-fixed-dim": "#a0d82f",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#b5c7ea",
+            "surface-container-highest": "#d9e3f6",
+            "on-background": "#121c2a",
+            "secondary-fixed": "#baf54c",
+            "on-secondary-container": "#4c6c00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "code-mono": ["JetBrains Mono"],
+            "display": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "code-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "title-md": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .checkbox-state:checked + label .check-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .checkbox-state:checked + label .box-ring {
+      background-color: #0b1f3a;
+      border-color: #0b1f3a;
+    }
+    .checkbox-state:checked ~ .task-content .task-title {
+      text-decoration: line-through;
+      color: #75777e;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen bg-background text-on-surface flex flex-col font-body-md text-body-md select-none pb-24">
+<!-- TOP APP BAR (Shared Component Execution) -->
+<header class="flex justify-between items-center w-full px-4 h-14 fixed top-0 left-0 z-40 bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_1px_2px_rgba(11,31,58,0.04)]">
+<div class="flex items-center gap-2.5">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container-low transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+</button>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">Agency OS</h1>
+<span class="text-outline-variant font-light text-label-md">/</span>
+<span class="font-title-md text-title-md text-on-surface-variant font-medium">My Tasks</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="flex items-center justify-center gap-1 bg-primary-container text-on-primary h-8 px-3 rounded-lg font-label-md text-label-md font-medium hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Task</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CANVAS -->
+<main class="flex-1 w-full max-w-md mx-auto pt-16 px-4 flex flex-col gap-3.5">
+<!-- SEARCH & FILTER BAR -->
+<div class="flex items-center gap-2 mt-1">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[18px]" data-icon="search">search</span>
+</div>
+<input class="w-full h-[38px] pl-8 pr-3 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md placeholder:text-outline focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container/40 transition-all text-on-surface" placeholder="Search tasks or clients..." type="text"/>
+</div>
+<!-- Filter Button with active indicator 2 -->
+<button class="relative h-[38px] px-3 bg-surface-container-lowest border border-outline-variant rounded-lg flex items-center justify-center gap-1.5 text-on-surface hover:bg-surface-container-low active:scale-95 transition-all shadow-[0_1px_2px_rgba(11,31,58,0.02)]">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="tune">tune</span>
+<span class="w-4 h-4 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold flex items-center justify-center leading-none">2</span>
+</button>
+<!-- View Switcher (List active vs Kanban) -->
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-lg p-0.5 shadow-[0_1px_2px_rgba(11,31,58,0.02)]">
+<button class="h-7 w-7 rounded flex items-center justify-center bg-primary-container text-on-primary shadow-xs transition-all" title="List View">
+<span class="material-symbols-outlined text-[16px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="h-7 w-7 rounded flex items-center justify-center text-outline hover:text-on-surface transition-all" title="Kanban View">
+<span class="material-symbols-outlined text-[16px]" data-icon="view_kanban">view_kanban</span>
+</button>
+</div>
+</div>
+<!-- HORIZONTAL STATUS TAB PILLS -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-4 px-4">
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all">
+<span>All</span>
+<span class="text-[10px] font-mono text-outline">24</span>
+</button>
+<!-- Active: Today -->
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary font-semibold text-label-sm font-label-sm flex items-center gap-1.5 whitespace-nowrap shadow-xs active:scale-95 transition-all">
+<span>Today</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold">6</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all">
+<span>Upcoming</span>
+<span class="text-[10px] font-mono text-outline">12</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all">
+<span>In Review</span>
+<span class="text-[10px] font-mono text-outline">4</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all">
+<span>Completed</span>
+<span class="text-[10px] font-mono text-outline">18</span>
+</button>
+</div>
+<!-- SECTION: DUE TODAY -->
+<section class="flex flex-col gap-2 mt-1">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<h2 class="font-title-md text-title-md text-primary tracking-tight">Due Today</h2>
+<span class="text-body-sm font-body-sm text-outline font-mono">(6)</span>
+</div>
+<button class="flex items-center gap-1 text-label-sm font-label-sm text-outline hover:text-primary transition-colors">
+<span>Sort: Due time</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="swap_vert">swap_vert</span>
+</button>
+</div>
+<!-- Task List Container -->
+<div class="flex flex-col gap-2">
+<!-- Task Item 1 -->
+<article class="relative flex items-start gap-3 p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/70 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:border-secondary-fixed-dim transition-all">
+<input class="checkbox-state sr-only" id="task-1" type="checkbox"/>
+<label class="cursor-pointer pt-0.5" for="task-1">
+<span class="box-ring w-[18px] h-[18px] rounded-[5px] border-[1.5px] border-outline-variant flex items-center justify-center transition-colors">
+<span class="check-icon material-symbols-outlined text-white text-[14px] opacity-0 transition-all scale-75" data-icon="check">check</span>
+</span>
+</label>
+<div class="task-content flex-1 min-w-0 flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<h3 class="task-title font-title-md text-title-md text-on-surface font-medium leading-snug line-clamp-2">
+                Refine Meta Ads lookalike audiences 1-3%
+              </h3>
+<span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200/60 font-label-sm text-[10px] font-bold tracking-wider shrink-0 uppercase">High</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 truncate">
+<span class="font-medium text-primary">Apex Athletics</span>
+<span class="text-outline-variant">·</span>
+<span class="text-outline">Paid Social</span>
+</p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/40 mt-0.5">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-amber-700" data-icon="schedule">schedule</span>
+<span class="font-mono text-[11px] font-medium text-amber-800">Today, 2:00 PM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-primary-container text-[10px] font-bold flex items-center justify-center font-mono ring-1 ring-white">AM</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Task Item 2 -->
+<article class="relative flex items-start gap-3 p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/70 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:border-secondary-fixed-dim transition-all">
+<input class="checkbox-state sr-only" id="task-2" type="checkbox"/>
+<label class="cursor-pointer pt-0.5" for="task-2">
+<span class="box-ring w-[18px] h-[18px] rounded-[5px] border-[1.5px] border-outline-variant flex items-center justify-center transition-colors">
+<span class="check-icon material-symbols-outlined text-white text-[14px] opacity-0 transition-all scale-75" data-icon="check">check</span>
+</span>
+</label>
+<div class="task-content flex-1 min-w-0 flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<h3 class="task-title font-title-md text-title-md text-on-surface font-medium leading-snug line-clamp-2">
+                Upload responsive display ads &amp; copy variants
+              </h3>
+<span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200/60 font-label-sm text-[10px] font-bold tracking-wider shrink-0 uppercase">Medium</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 truncate">
+<span class="font-medium text-primary">Horizon SaaS</span>
+<span class="text-outline-variant">·</span>
+<span class="text-outline">Google Ads</span>
+</p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/40 mt-0.5">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="schedule">schedule</span>
+<span class="font-mono text-[11px] text-on-surface-variant">Today, 4:00 PM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-primary-container text-[10px] font-bold flex items-center justify-center font-mono ring-1 ring-white">AM</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Task Item 3 (Urgent) -->
+<article class="relative flex items-start gap-3 p-3 bg-surface-container-lowest rounded-xl border border-rose-200/80 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:border-secondary-fixed-dim transition-all">
+<input class="checkbox-state sr-only" id="task-3" type="checkbox"/>
+<label class="cursor-pointer pt-0.5" for="task-3">
+<span class="box-ring w-[18px] h-[18px] rounded-[5px] border-[1.5px] border-outline-variant flex items-center justify-center transition-colors">
+<span class="check-icon material-symbols-outlined text-white text-[14px] opacity-0 transition-all scale-75" data-icon="check">check</span>
+</span>
+</label>
+<div class="task-content flex-1 min-w-0 flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<h3 class="task-title font-title-md text-title-md text-on-surface font-medium leading-snug line-clamp-2">
+                Client creative approval: Q4 promo carousel
+              </h3>
+<span class="px-2 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200 font-label-sm text-[10px] font-bold tracking-wider shrink-0 uppercase flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+                Urgent
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 truncate">
+<span class="font-medium text-primary">Lumina Skincare</span>
+<span class="text-outline-variant">·</span>
+<span class="text-outline">Creative</span>
+</p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/40 mt-0.5">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-rose-700">
+<span class="material-symbols-outlined text-[15px] text-rose-600" data-icon="bolt">bolt</span>
+<span class="font-mono text-[11px] font-semibold text-rose-700">Today, 5:30 PM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold flex items-center justify-center font-mono ring-1 ring-white">SK</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Task Item 4 -->
+<article class="relative flex items-start gap-3 p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/70 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:border-secondary-fixed-dim transition-all">
+<input class="checkbox-state sr-only" id="task-4" type="checkbox"/>
+<label class="cursor-pointer pt-0.5" for="task-4">
+<span class="box-ring w-[18px] h-[18px] rounded-[5px] border-[1.5px] border-outline-variant flex items-center justify-center transition-colors">
+<span class="check-icon material-symbols-outlined text-white text-[14px] opacity-0 transition-all scale-75" data-icon="check">check</span>
+</span>
+</label>
+<div class="task-content flex-1 min-w-0 flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<h3 class="task-title font-title-md text-title-md text-on-surface font-medium leading-snug line-clamp-2">
+                Weekly technical SEO crawl &amp; broken links audit
+              </h3>
+<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-label-sm text-[10px] font-bold tracking-wider shrink-0 uppercase">Low</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 truncate">
+<span class="font-medium text-primary">Veloce Mobility</span>
+<span class="text-outline-variant">·</span>
+<span class="text-outline">SEO</span>
+</p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/40 mt-0.5">
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="schedule">schedule</span>
+<span class="font-mono text-[11px] text-on-surface-variant">Today, 6:00 PM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-secondary-fixed-dim text-on-secondary-fixed text-[10px] font-bold flex items-center justify-center font-mono ring-1 ring-white">DL</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- SECTION: UPCOMING THIS WEEK -->
+<section class="flex flex-col gap-2 mt-2">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<h2 class="font-title-md text-title-md text-primary tracking-tight">Upcoming This Week</h2>
+<span class="text-body-sm font-body-sm text-outline font-mono">(12)</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Scannable Compact Task Rows -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/70 overflow-hidden divide-y divide-outline-variant/50 shadow-[0_1px_3px_0_rgba(11,31,58,0.02)]">
+<!-- Compact Row 1 -->
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2.5 min-w-0 pr-2">
+<span class="w-4 h-4 rounded-[4px] border-[1.5px] border-outline-variant shrink-0"></span>
+<div class="truncate">
+<div class="font-title-md text-body-md text-on-surface font-medium truncate">TikTok Spark ad video cuts final review</div>
+<div class="font-body-sm text-body-sm text-outline truncate">Apex Athletics · Tomorrow, 11:30 AM</div>
+</div>
+</div>
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-primary-container text-[10px] font-bold flex items-center justify-center font-mono shrink-0">AM</span>
+</div>
+<!-- Compact Row 2 -->
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2.5 min-w-0 pr-2">
+<span class="w-4 h-4 rounded-[4px] border-[1.5px] border-outline-variant shrink-0"></span>
+<div class="truncate">
+<div class="font-title-md text-body-md text-on-surface font-medium truncate">Performance Max bid strategy adjustment</div>
+<div class="font-body-sm text-body-sm text-outline truncate">Horizon SaaS · Thu, 3:00 PM</div>
+</div>
+</div>
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-primary-container text-[10px] font-bold flex items-center justify-center font-mono shrink-0">AM</span>
+</div>
+<!-- Compact Row 3 -->
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2.5 min-w-0 pr-2">
+<span class="w-4 h-4 rounded-[4px] border-[1.5px] border-outline-variant shrink-0"></span>
+<div class="truncate">
+<div class="font-title-md text-body-md text-on-surface font-medium truncate">Client monthly review presentation deck</div>
+<div class="font-body-sm text-body-sm text-outline truncate">Lumina Skincare · Fri, 10:00 AM</div>
+</div>
+</div>
+<span class="w-5 h-5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold flex items-center justify-center font-mono shrink-0">SK</span>
+</div>
+</div>
+</section>
+<!-- FLOATING QUICK-ACTION DOCK -->
+<aside class="sticky bottom-20 z-30 flex items-center justify-between px-3.5 py-2.5 bg-primary-container text-on-primary rounded-xl shadow-[0_8px_20px_-4px_rgba(11,31,58,0.25)] border border-primary-container/80 transition-all">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md font-medium text-white">4 selected</span>
+<span class="text-outline text-label-md">·</span>
+<button class="text-on-primary-fixed-variant text-label-sm font-label-sm hover:text-white underline transition-colors">Clear</button>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="h-7 px-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg font-label-sm text-label-sm flex items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]" data-icon="postpone">schedule</span>
+<span>Defer</span>
+</button>
+<button class="h-7 px-2.5 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container rounded-lg font-label-sm text-label-sm font-semibold flex items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]" data-icon="done_all">done_all</span>
+<span>Mark Done</span>
+</button>
+</div>
+</aside>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Shared Component Execution - Active: My Tasks) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-2px_8px_rgba(11,31,58,0.03)] border-t border-outline-variant/60">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 flex-1 py-1" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+</a>
+<!-- My Tasks (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-secondary-container font-semibold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 flex-1 py-1 relative" href="#">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-sm font-label-sm mt-0.5">My Tasks</span>
+<span class="absolute top-1 right-1/4 w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+</a>
+<!-- Projects (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 flex-1 py-1" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="folder">folder</span>
+<span class="text-label-sm font-label-sm mt-0.5">Projects</span>
+</a>
+<!-- Inbox (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 flex-1 py-1 relative" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="inbox">inbox</span>
+<span class="text-label-sm font-label-sm mt-0.5">Inbox</span>
+<span class="absolute top-1.5 right-1/4 w-2 h-2 rounded-full bg-error border-2 border-white"></span>
+</a>
+</nav>
+</body></html>

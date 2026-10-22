@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Agency OS - Mobile Kanban Board</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#ebf1ff",
+            "inverse-surface": "#273140",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#121c2a",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary": "#0d0400",
+            "on-tertiary-fixed-variant": "#613f20",
+            "outline-variant": "#c4c6ce",
+            "secondary": "#486800",
+            "surface-container-high": "#dfe9fc",
+            "on-primary-fixed-variant": "#364764",
+            "background": "#f8f9ff",
+            "on-tertiary-fixed": "#2e1500",
+            "surface": "#f8f9ff",
+            "on-surface-variant": "#44474d",
+            "on-secondary-fixed-variant": "#354e00",
+            "tertiary-fixed-dim": "#eebd94",
+            "tertiary-container": "#321800",
+            "primary-container": "#0b1f3a",
+            "tertiary-fixed": "#ffdcc1",
+            "on-tertiary-container": "#a87e59",
+            "primary-fixed-dim": "#b5c7ea",
+            "on-error": "#ffffff",
+            "primary-fixed": "#d6e3ff",
+            "secondary-container": "#b8f249",
+            "surface-container-low": "#eff3ff",
+            "primary": "#000615",
+            "surface-dim": "#d0daee",
+            "on-secondary-fixed": "#131f00",
+            "surface-bright": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#d9e3f6",
+            "error": "#ba1a1a",
+            "on-primary-container": "#7587a7",
+            "surface-container": "#e6eeff",
+            "on-primary-fixed": "#071c36",
+            "outline": "#75777e",
+            "surface-tint": "#4d5f7d",
+            "secondary-fixed-dim": "#a0d82f",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#b5c7ea",
+            "surface-container-highest": "#d9e3f6",
+            "on-background": "#121c2a",
+            "secondary-fixed": "#baf54c",
+            "on-secondary-container": "#4c6c00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "code-mono": ["JetBrains Mono"],
+            "display": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "code-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "title-md": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbar for clean horizontal swipe tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen pb-24 selection:bg-secondary-container selection:text-primary">
+<!-- TOP APP BAR (from Shared Components JSON: TopAppBar) -->
+<header class="flex justify-between items-center w-full px-4 h-14 fixed top-0 left-0 z-40 bg-surface-container-lowest dark:bg-inverse-surface shadow-sm">
+<div class="flex items-center gap-2.5">
+<button aria-label="Menu" class="p-1 rounded-lg text-primary dark:text-inverse-primary hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">grid_view</span>
+</button>
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm font-semibold tracking-tight text-primary dark:text-inverse-on-surface">Agency OS</span>
+<span class="text-outline-variant font-label-md text-label-md">/</span>
+<span class="text-body-md font-body-md font-medium text-on-surface-variant">My Tasks</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Fast New Task Accent Button -->
+<button class="inline-flex items-center justify-center gap-1 h-8 px-2.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-label-sm hover:bg-surface-tint active:scale-95 transition-all duration-150 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="hidden sm:inline">New Task</span>
+</button>
+</div>
+</header>
+<!-- SECONDARY ACTION BAR & SUB-HEADER (Filters, View Mode Toggle) -->
+<section class="mt-14 pt-3 pb-2 px-4 bg-surface-container-lowest shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between gap-3">
+<!-- Project Filter Dropdown -->
+<button class="flex items-center justify-between gap-2 h-8 px-2.5 bg-surface-container-low rounded-lg border border-surface-container hover:bg-surface-container-high transition-colors text-on-surface active:scale-95" type="button">
+<span class="material-symbols-outlined text-outline text-[16px]">domain</span>
+<span class="text-label-sm font-label-sm text-on-surface font-medium truncate max-w-[120px]">All Projects</span>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</button>
+<!-- View Switcher (List vs Board) -->
+<div class="inline-flex p-0.5 bg-surface-container-low rounded-lg border border-surface-container">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">format_list_bulleted</span>
+<span>List</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-lowest text-primary font-semibold text-label-sm font-label-sm shadow-sm" type="button">
+<span class="material-symbols-outlined text-[15px]">view_kanban</span>
+<span>Board</span>
+</button>
+</div>
+</div>
+<!-- Column Selector Tabs (Swipe / Tap Indicator) -->
+<nav class="flex items-center gap-1 overflow-x-auto no-scrollbar pt-1 pb-1 -mx-4 px-4 border-t border-surface-container">
+<!-- To Do -->
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
+<span>To Do</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant rounded-full text-[10px] font-mono">5</span>
+</button>
+<!-- In Progress (ACTIVE TAB) -->
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-semibold text-label-sm font-label-sm shadow-sm ring-2 ring-secondary-container/50">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span>In Progress</span>
+<span class="px-1.5 py-0.2 bg-surface-container-highest text-primary font-bold rounded-full text-[10px] font-mono">3</span>
+</button>
+<!-- In Review -->
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
+<span>In Review</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant rounded-full text-[10px] font-mono">4</span>
+</button>
+<!-- Done -->
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors">
+<span>Done</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant rounded-full text-[10px] font-mono">18</span>
+</button>
+</nav>
+</section>
+<!-- MAIN KANBAN BOARD CONTAINER -->
+<main class="flex-1 px-4 pt-4 pb-16 flex flex-col gap-3">
+<!-- Column Title & Quick Add Card -->
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded bg-secondary-container/30 text-secondary">
+<span class="material-symbols-outlined text-[16px]">autorenew</span>
+</span>
+<h2 class="text-title-md font-title-md text-on-surface flex items-center gap-1.5">
+<span>In Progress</span>
+<span class="text-on-surface-variant text-label-sm font-normal">(3)</span>
+</h2>
+</div>
+<button aria-label="Quick Add Card" class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Task</span>
+</button>
+</div>
+<!-- KANBAN CARDS STACK -->
+<div class="flex flex-col gap-3">
+<!-- CARD 1: Apex Athletics -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:scale-[0.99] transition-all">
+<!-- Client Badge & Drag Indicator -->
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Apex Athletics · Meta Ads
+          </span>
+<button aria-label="Task options" class="text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Task Title -->
+<h3 class="text-title-md font-title-md text-on-surface leading-snug mb-2">
+          Scale Advantage+ shopping campaign budget by 20%
+        </h3>
+<!-- Checklist Progress -->
+<div class="mb-3.5 pt-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant mb-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">checklist</span>
+<span>3/4 subtasks done</span>
+</span>
+<span class="font-code-mono text-code-mono font-medium text-secondary">75%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full transition-all duration-300" style="width: 75%"></div>
+</div>
+</div>
+<!-- Meta Footer: Urgency, Due Date, Comments, Assignee -->
+<div class="pt-2.5 border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- Urgent Priority Badge -->
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              Urgent
+            </span>
+<!-- Due Date -->
+<span class="flex items-center gap-1 text-body-sm font-body-sm text-error font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+              Today 3 PM
+            </span>
+</div>
+<div class="flex items-center gap-2.5">
+<!-- Comments icon & count -->
+<span class="flex items-center gap-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span>
+<span>2</span>
+</span>
+<!-- Assignee Avatar -->
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-[10px] font-bold ring-1 ring-white">
+              AM
+            </div>
+</div>
+</div>
+</article>
+<!-- CARD 2: Lumina Skincare -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:scale-[0.99] transition-all">
+<!-- Client Badge -->
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+            Lumina Skincare · Design
+          </span>
+<button aria-label="Task options" class="text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Task Title -->
+<h3 class="text-title-md font-title-md text-on-surface leading-snug mb-2.5">
+          Design 5 static retargeting ad creatives for Instagram Stories
+        </h3>
+<!-- Deliverable Attachment Preview Badge -->
+<div class="mb-3.5">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-surface-container-low border border-surface-container text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">attachment</span>
+<span class="font-medium">5 Figma assets</span>
+<span class="material-symbols-outlined text-[13px] text-outline">open_in_new</span>
+</div>
+</div>
+<!-- Meta Footer: High Priority, Due Tomorrow, CW Avatar -->
+<div class="pt-2.5 border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- High Priority Badge -->
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-fixed-variant"></span>
+              High
+            </span>
+<!-- Due Date -->
+<span class="flex items-center gap-1 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">event</span>
+              Tomorrow
+            </span>
+</div>
+<div class="flex items-center gap-2.5">
+<!-- Comments count -->
+<span class="flex items-center gap-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">chat_bubble_outline</span>
+<span>4</span>
+</span>
+<!-- Assignee Avatar -->
+<div class="w-6 h-6 rounded-full bg-surface-tint text-on-primary flex items-center justify-center font-label-sm text-[10px] font-bold ring-1 ring-white">
+              CW
+            </div>
+</div>
+</div>
+</article>
+<!-- CARD 3: Horizon Cloud -->
+<article class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 shadow-[0_1px_3px_0_rgba(11,31,58,0.04),0_1px_2px_-1px_rgba(11,31,58,0.02)] active:scale-[0.99] transition-all">
+<!-- Client Badge -->
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+            Horizon Cloud · SEO
+          </span>
+<button aria-label="Task options" class="text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Task Title -->
+<h3 class="text-title-md font-title-md text-on-surface leading-snug mb-3">
+          Implement schema markup for service landing pages
+        </h3>
+<!-- Meta Footer: Medium Priority, Due Date, DL Avatar -->
+<div class="pt-2.5 border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- Medium Priority Badge -->
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-on-primary-fixed-variant font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-tint"></span>
+              Medium
+            </span>
+<!-- Due Date -->
+<span class="flex items-center gap-1 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">event</span>
+              Oct 26
+            </span>
+</div>
+<div class="flex items-center gap-2.5">
+<!-- Assignee Avatar -->
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[10px] font-bold ring-1 ring-white">
+              DL
+            </div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- QUICK COLUMN SWITCHER FLOATING PILL BAR (Bottom above nav for rapid one-thumb switching) -->
+<aside class="fixed bottom-20 left-0 right-0 z-30 flex justify-center pointer-events-none px-4">
+<div class="pointer-events-auto flex items-center justify-between w-full max-w-sm h-11 px-3 bg-primary-container text-inverse-on-surface rounded-full shadow-[0_10px_25px_-5px_rgba(11,31,58,0.25)] border border-primary-container/80 backdrop-blur">
+<!-- Previous column action -->
+<button class="flex items-center gap-1.5 py-1 px-2.5 rounded-full hover:bg-surface-container-highest/20 active:scale-95 transition-all text-label-sm font-label-sm text-inverse-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="font-medium">To Do</span>
+<span class="text-[10px] text-on-primary-container font-mono bg-inverse-surface px-1.5 py-0.2 rounded-full">5</span>
+</button>
+<span class="w-px h-4 bg-outline/40"></span>
+<!-- Next column action -->
+<button class="flex items-center gap-1.5 py-1 px-2.5 rounded-full hover:bg-surface-container-highest/20 active:scale-95 transition-all text-label-sm font-label-sm text-inverse-on-surface" type="button">
+<span class="font-medium">In Review</span>
+<span class="text-[10px] text-on-primary-container font-mono bg-inverse-surface px-1.5 py-0.2 rounded-full">4</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</aside>
+<!-- BOTTOM NAV BAR (from Shared Components JSON: BottomNavBar) -->
+<!-- Contextual Active: 'My Tasks' is active since screen is 'My Tasks / Board' -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-2px_8px_rgba(0,0,0,0.03)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 transition-transform duration-100 ease-out py-1 px-3" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Home</span>
+</a>
+<!-- My Tasks (ACTIVE ITEM) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-secondary-container font-semibold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 transition-transform duration-100 ease-out py-1 px-3" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-sm font-label-sm mt-0.5">My Tasks</span>
+</a>
+<!-- Projects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 transition-transform duration-100 ease-out py-1 px-3" href="#">
+<span class="material-symbols-outlined text-[22px]">folder</span>
+<span class="text-label-sm font-label-sm mt-0.5">Projects</span>
+</a>
+<!-- Inbox -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-90 transition-transform duration-100 ease-out py-1 px-3 relative" href="#">
+<span class="relative">
+<span class="material-symbols-outlined text-[22px]">inbox</span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-secondary-container"></span>
+</span>
+<span class="text-label-sm font-label-sm mt-0.5">Inbox</span>
+</a>
+</nav>
+</body></html>

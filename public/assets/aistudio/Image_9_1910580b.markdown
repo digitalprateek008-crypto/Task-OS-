@@ -1,0 +1,235 @@
+---
+name: Executive Kinetic Agency
+colors:
+  surface: '#f8f9ff'
+  surface-dim: '#d0daee'
+  surface-bright: '#f8f9ff'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#eff3ff'
+  surface-container: '#e6eeff'
+  surface-container-high: '#dfe9fc'
+  surface-container-highest: '#d9e3f6'
+  on-surface: '#121c2a'
+  on-surface-variant: '#44474d'
+  inverse-surface: '#273140'
+  inverse-on-surface: '#ebf1ff'
+  outline: '#75777e'
+  outline-variant: '#c4c6ce'
+  surface-tint: '#4d5f7d'
+  primary: '#000615'
+  on-primary: '#ffffff'
+  primary-container: '#0b1f3a'
+  on-primary-container: '#7587a7'
+  inverse-primary: '#b5c7ea'
+  secondary: '#486800'
+  on-secondary: '#ffffff'
+  secondary-container: '#b8f249'
+  on-secondary-container: '#4c6c00'
+  tertiary: '#0d0400'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#321800'
+  on-tertiary-container: '#a87e59'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#d6e3ff'
+  primary-fixed-dim: '#b5c7ea'
+  on-primary-fixed: '#071c36'
+  on-primary-fixed-variant: '#364764'
+  secondary-fixed: '#baf54c'
+  secondary-fixed-dim: '#a0d82f'
+  on-secondary-fixed: '#131f00'
+  on-secondary-fixed-variant: '#354e00'
+  tertiary-fixed: '#ffdcc1'
+  tertiary-fixed-dim: '#eebd94'
+  on-tertiary-fixed: '#2e1500'
+  on-tertiary-fixed-variant: '#613f20'
+  background: '#f8f9ff'
+  on-background: '#121c2a'
+  surface-variant: '#d9e3f6'
+typography:
+  display:
+    fontFamily: Inter
+    fontSize: 36px
+    fontWeight: '700'
+    lineHeight: 44px
+    letterSpacing: -0.03em
+  headline-lg:
+    fontFamily: Inter
+    fontSize: 30px
+    fontWeight: '600'
+    lineHeight: 38px
+    letterSpacing: -0.025em
+  headline-lg-mobile:
+    fontFamily: Inter
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+    letterSpacing: -0.02em
+  headline-md:
+    fontFamily: Inter
+    fontSize: 22px
+    fontWeight: '600'
+    lineHeight: 28px
+    letterSpacing: -0.02em
+  headline-sm:
+    fontFamily: Inter
+    fontSize: 18px
+    fontWeight: '600'
+    lineHeight: 24px
+    letterSpacing: -0.015em
+  title-md:
+    fontFamily: Inter
+    fontSize: 15px
+    fontWeight: '600'
+    lineHeight: 20px
+    letterSpacing: -0.01em
+  body-lg:
+    fontFamily: Inter
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: 22px
+    letterSpacing: -0.005em
+  body-md:
+    fontFamily: Inter
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 18px
+    letterSpacing: 0em
+  body-sm:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+    letterSpacing: 0em
+  label-md:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.01em
+  label-sm:
+    fontFamily: Inter
+    fontSize: 11px
+    fontWeight: '600'
+    lineHeight: 14px
+    letterSpacing: 0.02em
+  code-mono:
+    fontFamily: JetBrains Mono
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+    letterSpacing: -0.01em
+rounded:
+  sm: 0.25rem
+  DEFAULT: 0.5rem
+  md: 0.75rem
+  lg: 1rem
+  xl: 1.5rem
+  full: 9999px
+spacing:
+  gutter: 1rem
+  gutter-desktop: 1.5rem
+  margin: 1rem
+  margin-tablet: 1.5rem
+  margin-desktop: 2rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.5rem
+  space-xl: 2rem
+---
+
+## Brand & Style
+
+This design system targets high-growth digital marketing agencies, creative directors, and campaign operators who demand rigorous clarity under high cognitive load. The UI projects poise, structural precision, and velocity: calm confidence anchored by deep navy, punctuated by an electric lime accent that signals active momentum, conversion spikes, and critical operational triggers.
+
+The visual style merges Swiss functional minimalism with modern enterprise SaaS refinement (reminiscent of Linear’s density and Asana’s compositional ease). It replaces ornate decorative flourishes with pristine data density, calculated typographic hierarchy, and razor-sharp separation of concerns. Interfaces must feel crisp, tactile yet weightless, and aggressively legible across multi-layered client workflows, campaign deliverables, and resource allocations.
+
+## Colors
+
+The palette balances authoritative structure with vibrant real-time focus:
+- **Primary Navy (`#0B1F3A`):** The structural backbone. Applied to critical headers, high-level navigation chrome, core framing, and confident primary button states.
+- **Accent Lime (`#9DD52C`):** High-energy kinetic indicator. Reserved strictly for priority callouts, high-impact completion metrics, primary interactive focus, and forward-moving actions. Must be paired with `#0B1F3A` text when used as a solid fill for AA/AAA contrast compliance.
+- **Canvas & Surface:** `#F7F8FA` acts as the global backdrop to prevent stark eye fatigue, while pure white `#FFFFFF` surfaces elevate interactive cards, sheets, and modular panels.
+- **Text Layers:** Primary typography relies on charcoal ink `#182230` for uncompromised readability. Muted metadata, column labels, and timestamps utilize cool grey `#667085`.
+- **Dividers & Strokes:** Consistent hairline borders in `#E5E7EB` delineate data boundaries without adding visual bulk.
+- **Semantic Badges:**
+  - *Amber (`#D97706` / bg: `#FEF3C7`):* Pending review, campaign bottleneck.
+  - *Rose (`#E11D48` / bg: `#FFE4E6`):* Overdue, critical budget depletion, client blocker.
+  - *Blue (`#2563EB` / bg: `#DBEAFE`):* In-flight media spend, creative revision.
+  - *Emerald (`#059669` / bg: `#D1FAE5`):* Delivered, approved, live tracking.
+
+## Typography
+
+Typographic execution relies strictly on Inter, optimized for screen clarity via dynamic tracking tightening on titles and generous vertical rhythm on operational body text. JetBrains Mono is assigned strictly to metrics, campaign tracking IDs, UTM parameters, and numeric budget allocations to establish immediate scanning contrast.
+
+Large display styles are restricted to executive dashboards and client onboarding banners. Standard task lists, board views, and nested subtasks rely on `body-md` and `title-md` for maximum vertical density without sacrificing tap/click targets.
+
+## Layout & Spacing
+
+This design system is constructed on a rigorous 8px spatial grid (`0.5rem` base unit), enabling seamless modularity across nested Kanban columns, side drawers, and split-screen task detail panels.
+
+- **Layout Model:** A hybrid adaptive layout. The persistent left-hand global navigation spans a fixed 240px (collapsible to 64px icon-only). Main agency canvas utilizes a fluid 12-column grid system with 24px desktop gutters, collapsing to an 8-column layout on tablet and a single-column fluid stack on mobile devices.
+- **Density Adaptation:**
+  - *Desktop (>=1280px):* Full multi-column view with simultaneous sidebar, board view, and slide-over task inspector. Outer canvas margins: `margin-desktop`.
+  - *Tablet (768px - 1279px):* Collapsible secondary panels, boards transform into horizontally swipeable columns or compact table matrices. Outer margins: `margin-tablet`.
+  - *Mobile (<768px):* Single active column, persistent bottom command bar, contextual bottom sheets replacing slide-overs. Outer margins: `margin`.
+
+## Elevation & Depth
+
+Visual hierarchy operates through crisp flat planar separation combined with micro-calibrated ambient shadows. Pure structural hierarchy is achieved by layering white surfaces (`#FFFFFF`) against the subtle gray canvas (`#F7F8FA`) bounded by hairline borders (`1px solid #E5E7EB`).
+
+Depth layers are defined strictly for temporal states and floating utilities:
+- **Level 0 (Flat Surface):** Direct canvas elements and nested data table rows. Separated purely by `#E5E7EB` borders.
+- **Level 1 (Resting Card / Kanban Tile):** Raised above the canvas. `box-shadow: 0 1px 3px 0 rgba(11, 31, 58, 0.04), 0 1px 2px -1px rgba(11, 31, 58, 0.02);` accompanied by a border of `rgba(229, 231, 235, 1)`.
+- **Level 2 (Hover / Active Drag):** Cards elevated during reordering or hover inspection. `box-shadow: 0 10px 15px -3px rgba(11, 31, 58, 0.08), 0 4px 6px -4px rgba(11, 31, 58, 0.03);` with subtle border tinting towards `#9DD52C`.
+- **Level 3 (Modals, Slide-Overs, Command Menus):** Overlays floating above the backdrop. `box-shadow: 0 20px 25px -5px rgba(11, 31, 58, 0.12), 0 8px 10px -6px rgba(11, 31, 58, 0.04);` backed by a 20% darkened scrim with `backdrop-filter: blur(4px)`.
+
+## Shapes
+
+The interface embraces a unified `rounded-xl` geometry (10px–12px) for primary containers, producing a streamlined, humanized operational aesthetic that rejects both harsh aggressive square terminals and juvenile hyper-rounded bubbles.
+
+- **Cards & Data Modals:** 12px (`0.75rem`) border radius, framing campaign metrics, client boards, and work items.
+- **Buttons & Text Inputs:** 10px (`0.625rem`) border radius, creating a comfortable, balanced interaction target.
+- **Badges, Tags & Semantic Chips:** Fully rounded pill shapes (`9999px`) to maintain clear visual differentiation between structural layout containers and metadata labels.
+
+## Components
+
+### Buttons
+- **Primary:** Solid navy `#0B1F3A` background, `#FFFFFF` text, subtle hover lightening to `#182F4E`. 10px border radius, medium weight typography, 36px standard height for compact task flows.
+- **Accent Action:** Solid energetic lime `#9DD52C` background, `#0B1F3A` text, hover glow with slight opacity change. Used exclusively for "New Campaign", "Approve Deliverable", or "Publish".
+- **Secondary:** White `#FFFFFF` background with 1px `#E5E7EB` border, `#182230` text. Hover state shifts background to `#F7F8FA`.
+- **Ghost:** Transparent background, `#667085` text; transitions to light navy tint (`rgba(11, 31, 58, 0.05)`) on hover.
+
+### Chips & Semantic Badges
+- Pill silhouette (`rounded-full`), `space-xs` vertical padding, `space-sm` horizontal padding.
+- Font styling: `label-sm` (11px, bold, uppercase tracking).
+- Built with a dual-tone system: 15% opacity tinted background with saturated foreground text (e.g., `#FEF3C7` background with `#B45309` text for pending reviews).
+
+### Input Fields & Search Bars
+- Background: `#FFFFFF`. 1px stroke in `#E5E7EB`. Height: 38px.
+- Typography: `body-md` in `#182230`; placeholder text in `#9CA3AF`.
+- Focus State: Crisp 1.5px border transition to `#0B1F3A` accompanied by an external ring: `0 0 0 3px rgba(157, 213, 44, 0.25)`. No harsh browser defaults.
+
+### Checkboxes & Task Toggles
+- Custom 18x18px squared box with 5px radius.
+- Unchecked: 1.5px border `#D1D5DB`, hover creates border `#0B1F3A`.
+- Checked: `#0B1F3A` fill with white checkmark icon, or `#9DD52C` fill with `#0B1F3A` checkmark for milestone completions.
+
+### Lists & Data Rows
+- High-density tabular layouts with 44px row heights.
+- Top and bottom dividers strictly 1px `#E5E7EB`.
+- Hover state: Row-level `#F9FAFB` fill with an appearing left-edge 2px indicator in `#9DD52C`.
+- Inline metadata (assignee avatar, deadline, budget) aligned via strict vertical baselines.
+
+### Cards & Task Tiles
+- Clean white surface with 1px `#E5E7EB` border, 12px corner radius.
+- Padding: `space-md` (16px).
+- Internal layout includes task title in `title-md`, secondary descriptive text clamped to 2 lines in `body-sm`, and an anchored footer containing team avatars (24px overlapping circles), deadline chips, and live subtask completion bars.
+
+### Agency-Specific Components
+- **Client Workspace Switcher:** Compact header menu featuring client brand mark, current billing status indicator, and quick shortcut selector.
+- **Budget Burn Gauge:** Slim 4px horizontal meter displaying media spend vs. delivery milestone with emerald-to-amber progress fills.
+- **Deliverable Approval Drawer:** High-context side inspector with inline asset preview, multi-stakeholder approval signatures, and direct Figma/Drive integration hooks.

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Agency OS - Task Detail</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#ebf1ff",
+            "inverse-surface": "#273140",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#121c2a",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "tertiary": "#0d0400",
+            "on-tertiary-fixed-variant": "#613f20",
+            "outline-variant": "#c4c6ce",
+            "secondary": "#486800",
+            "surface-container-high": "#dfe9fc",
+            "on-primary-fixed-variant": "#364764",
+            "background": "#f8f9ff",
+            "on-tertiary-fixed": "#2e1500",
+            "surface": "#f8f9ff",
+            "on-surface-variant": "#44474d",
+            "on-secondary-fixed-variant": "#354e00",
+            "tertiary-fixed-dim": "#eebd94",
+            "tertiary-container": "#321800",
+            "primary-container": "#0b1f3a",
+            "tertiary-fixed": "#ffdcc1",
+            "on-tertiary-container": "#a87e59",
+            "primary-fixed-dim": "#b5c7ea",
+            "on-error": "#ffffff",
+            "primary-fixed": "#d6e3ff",
+            "secondary-container": "#b8f249",
+            "surface-container-low": "#eff3ff",
+            "primary": "#000615",
+            "surface-dim": "#d0daee",
+            "on-secondary-fixed": "#131f00",
+            "surface-bright": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#d9e3f6",
+            "error": "#ba1a1a",
+            "on-primary-container": "#7587a7",
+            "surface-container": "#e6eeff",
+            "on-primary-fixed": "#071c36",
+            "outline": "#75777e",
+            "surface-tint": "#4d5f7d",
+            "secondary-fixed-dim": "#a0d82f",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#b5c7ea",
+            "surface-container-highest": "#d9e3f6",
+            "on-background": "#121c2a",
+            "secondary-fixed": "#baf54c",
+            "on-secondary-container": "#4c6c00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "code-mono": ["JetBrains Mono"],
+            "display": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+            "code-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+            "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "title-md": ["15px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #c4c6ce;
+      border-radius: 9999px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-full w-full overflow-hidden bg-surface text-on-surface font-body-md select-none">
+<!-- BACKGROUND: Dimmed Kanban Board Simulation (Contextual Backdrop) -->
+<div class="fixed inset-0 z-0 flex flex-col opacity-30 pointer-events-none filter blur-[1px]">
+<!-- Simulated TopAppBar from JSON Anchors -->
+<header class="flex justify-between items-center w-full px-4 h-14 bg-surface-container-lowest border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">grid_view</span>
+<span class="text-headline-sm font-headline-sm font-semibold tracking-tight text-primary">Agency OS</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">add</span>
+</div>
+</header>
+<!-- Simulated Board Canvas -->
+<div class="flex-1 p-4 grid grid-cols-1 gap-4">
+<div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant">
+<div class="flex justify-between items-center mb-3">
+<span class="font-title-md text-title-md">Meta Ads · Q4 Peak</span>
+<span class="font-code-mono text-code-mono bg-surface-container px-2 py-0.5 rounded">4 active</span>
+</div>
+<div class="space-y-3">
+<div class="p-3 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm">
+<p class="font-title-md text-title-md text-on-surface">Creative Batch Testing #2</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Under creative review by Jess</p>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm">
+<p class="font-title-md text-title-md text-on-surface">Scale Advantage+ Shopping Campaign</p>
+<p class="font-body-sm text-body-sm text-secondary-container mt-1">Selected</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BACKDROP SCRIM: 20% darkened with blur as per Level 3 Elevation Token -->
+<div class="fixed inset-0 z-30 bg-primary-container/40 backdrop-blur-[4px] transition-opacity duration-200"></div>
+<!-- SLIDE-UP BOTTOM SHEET / DRAWER: High context Task Detail -->
+<div class="fixed inset-x-0 bottom-0 top-7 z-40 flex flex-col bg-surface-container-lowest rounded-t-[20px] border-t border-outline-variant shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-200">
+<!-- DRAWER HEADER: Drag handle + breadcrumbs + context actions -->
+<div class="w-full flex-shrink-0 pt-2.5 pb-3 px-4 border-b border-outline-variant/60 bg-surface-container-lowest">
+<!-- Drag handle bar -->
+<div class="w-10 h-1 bg-outline-variant/80 rounded-full mx-auto mb-3"></div>
+<div class="flex items-center justify-between">
+<!-- Task Breadcrumb Hierarchy -->
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-code-mono text-code-mono font-medium text-primary-container bg-surface-container-high px-2 py-0.5 rounded">Task #AG-1048</span>
+<span class="text-on-surface-variant font-body-sm">/</span>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">Apex Athletics · Meta Ads</span>
+</div>
+<!-- Action Icons: Share, More, Close -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button aria-label="Share task" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low active:scale-95 transition-transform text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[19px]">share</span>
+</button>
+<button aria-label="More options" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low active:scale-95 transition-transform text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+<button aria-label="Close drawer" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low active:scale-95 transition-transform text-on-surface hover:text-error ml-1">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SCROLLABLE DRAWER CANVAS -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-4 py-4 space-y-5 bg-surface-container-lowest">
+<!-- 1. STATUS & PRIORITY SELECTORS -->
+<div class="flex items-center gap-2 flex-wrap">
+<!-- Status Dropdown Pill -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/80 hover:bg-surface-container-high active:scale-95 transition-all text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse"></span>
+<span class="font-semibold text-primary">In Progress</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</button>
+<!-- Priority Selector Pill -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FEF3C7] border border-[#FDE68A] hover:bg-[#FDE68A] active:scale-95 transition-all text-[#B45309] font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+<span class="font-semibold text-[#B45309]">High Priority</span>
+<span class="material-symbols-outlined text-[16px] text-[#B45309]">expand_more</span>
+</button>
+<!-- Sprint Tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/60 text-on-surface-variant font-code-mono text-code-mono">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Sprint 42
+        </span>
+</div>
+<!-- 2. EDITABLE TASK TITLE -->
+<div class="group relative">
+<textarea class="w-full resize-none p-0 bg-transparent border-0 font-headline-lg-mobile text-headline-lg-mobile font-semibold text-primary focus:ring-0 placeholder:text-outline leading-tight tracking-tight selection:bg-secondary-container" placeholder="Task title..." rows="2">Scale Advantage+ Shopping Campaign budget &amp; refresh creative angles</textarea>
+<span class="absolute right-0 top-1 opacity-0 group-hover:opacity-100 text-outline transition-opacity pointer-events-none">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</span>
+</div>
+<!-- 3. TASK META GRID (Clean 2-Column Key-Value Layout) -->
+<div class="grid grid-cols-2 gap-x-4 gap-y-3 p-3.5 rounded-xl bg-surface-container-low/60 border border-outline-variant/70">
+<!-- Assignee -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Assignee</span>
+<div class="flex items-center gap-2">
+<div class="relative w-6 h-6 rounded-full overflow-hidden border border-outline-variant flex-shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A sharp, minimalist studio headshot portrait of Alex Morgan, a male digital advertising strategist in his late twenties with focused composure. Soft daylighting on a clean, light-mode architectural gray backdrop. The aesthetic mirrors crisp executive tech minimalism with deep navy accents and cool modern lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBYok9JAJ91ufhK0qwIKelx7DpF-VZM-p6lZ-ESdzRJ7tRMszh7QtAeXgRvnaEB_kRq8nRawaICKsvKodoowheCOlLViPCTzwxmOFbtKdUCHAKVHF5Ela4f5PufdpDV1d7PX3Kcu5DSb4ultKVa1YQTT0zGh8JV0vRjF_yN7MPza9V5wtIaEM_xueTzOMUZZTEc4euG45l-G-hh-hxf2lgzhTlVD-_MEc8rkBfZ8pHPDu9nuCfReBKIw"/>
+</div>
+<div class="truncate">
+<p class="font-title-md text-title-md text-primary truncate leading-none">Alex Morgan</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate text-[11px] mt-0.5">Media Buyer</p>
+</div>
+</div>
+</div>
+<!-- Reviewer -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Reviewer</span>
+<div class="flex items-center gap-2">
+<div class="relative w-6 h-6 rounded-full overflow-hidden border border-outline-variant flex-shrink-0 bg-secondary-fixed">
+<img class="w-full h-full object-cover" data-alt="Professional clean portrait of Jessica Chen, a female creative director in modern minimalist apparel against a luminous high-key studio background. Clean lines, confident poise, soft warm illumination with contemporary executive appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx9tKuUT4maJCxiWDte4023v3cZEymyxuq7hGIqHh7_I8hAeQsacK1FYLSOxjfyGtooJb9TnSl6xdi2EporUynRnYWj7qtwU1ypY1YbgJ4AVY-ekECI3j3ZO-nBdIkGyedt64qVQml_zQlp8LchoyDK17daLL6pyXdoS90I5CNLpWmzbVAGc_XFeZT5dxkN44ImK8KKZADEeNMwpdZjaxVwEP_x0zJJhEStvVjCA-UZjeZIhkaNWPMvA"/>
+</div>
+<div class="truncate">
+<p class="font-title-md text-title-md text-primary truncate leading-none">Jessica Chen</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate text-[11px] mt-0.5">Creative Director</p>
+</div>
+</div>
+</div>
+<div class="col-span-2 h-[1px] bg-outline-variant/40"></div>
+<!-- Due Date -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Due Date</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-error">event</span>
+<span class="font-body-md text-body-md font-medium text-error">Oct 24, 2023 · 3:00 PM</span>
+</div>
+</div>
+<!-- Client & Project -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Client &amp; Project</span>
+<div class="flex items-center gap-1.5 truncate">
+<span class="w-2 h-2 rounded-sm bg-secondary-container flex-shrink-0"></span>
+<span class="font-body-md text-body-md font-medium text-primary truncate">Apex · Q4 Peak Ads</span>
+</div>
+</div>
+</div>
+<!-- 4. DESCRIPTION SECTION -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Description</h4>
+<span class="font-code-mono text-[10px] text-outline">Markdown supported</span>
+</div>
+<div class="p-3 bg-surface-container-lowest border border-outline-variant/80 rounded-xl hover:border-outline transition-colors">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Increase daily spend from <strong class="text-primary font-semibold">$1,200</strong> to <strong class="text-primary font-semibold">$1,500</strong> following the verified <span class="bg-secondary-fixed/30 px-1 py-0.5 rounded text-on-secondary-fixed font-medium">3.8x ROAS</span> benchmark. Introduce 3 new hook variations tested in UGC batch #2 across top-performing lifestyle segments.
+          </p>
+</div>
+</div>
+<!-- 5. SUBTASK / DELIVERABLE CHECKLIST -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Subtasks &amp; Deliverables</h4>
+<span class="font-code-mono text-code-mono px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-medium">2/4</span>
+</div>
+<!-- Tiny completion bar -->
+<div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-1/2"></div>
+</div>
+</div>
+<!-- Checklist Items -->
+<div class="space-y-1.5">
+<!-- Item 1 (Checked) -->
+<label class="flex items-start gap-3 p-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/40 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="mt-0.5 w-[18px] h-[18px] rounded-[5px] text-primary-container focus:ring-0 focus:ring-offset-0 border-outline cursor-pointer accent-primary-container" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none">Check ROAS threshold in Meta Ads Manager</span>
+</div>
+<span class="font-code-mono text-[11px] text-outline flex-shrink-0">3.82x</span>
+</label>
+<!-- Item 2 (Checked) -->
+<label class="flex items-start gap-3 p-2.5 rounded-lg border border-outline-variant/60 bg-surface-container-low/40 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input checked="" class="mt-0.5 w-[18px] h-[18px] rounded-[5px] text-primary-container focus:ring-0 focus:ring-offset-0 border-outline cursor-pointer accent-primary-container" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface-variant line-through select-none">Duplicate winning ad sets with new budget cap</span>
+</div>
+<span class="font-code-mono text-[11px] text-outline flex-shrink-0">$1.5k</span>
+</label>
+<!-- Item 3 (Unchecked) -->
+<label class="flex items-start gap-3 p-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:border-primary-container transition-all cursor-pointer group">
+<input class="mt-0.5 w-[18px] h-[18px] rounded-[5px] text-primary-container focus:ring-0 focus:ring-offset-0 border-outline cursor-pointer" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors select-none">Swap carousel card 3 with lifestyle variant</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary">arrow_forward</span>
+</label>
+<!-- Item 4 (Unchecked) -->
+<label class="flex items-start gap-3 p-2.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:border-primary-container transition-all cursor-pointer group">
+<input class="mt-0.5 w-[18px] h-[18px] rounded-[5px] text-primary-container focus:ring-0 focus:ring-offset-0 border-outline cursor-pointer" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors select-none">Notify client account manager on Slack</span>
+</div>
+<span class="font-code-mono text-[11px] text-on-surface-variant bg-surface-container px-1 rounded">#apex-q4</span>
+</label>
+</div>
+<!-- Add Subtask Action -->
+<button class="inline-flex items-center gap-1.5 text-primary hover:text-on-primary-fixed-variant font-label-md text-label-md pt-1 pl-1 font-semibold group">
+<span class="material-symbols-outlined text-[16px] group-hover:scale-110 transition-transform">add</span>
+<span>Add subtask</span>
+</button>
+</div>
+<!-- 6. ATTACHMENTS PREVIEW PILLS -->
+<div class="space-y-1.5">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Attachments (2)</h4>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar">
+<!-- Attachment 1 -->
+<div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline transition-colors flex-shrink-0 cursor-pointer">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[17px]">image</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-medium truncate max-w-[130px]">Figma_Hooks_v2.png</p>
+<p class="font-code-mono text-[10px] text-outline">2.4 MB · PNG</p>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline hover:text-primary ml-1">download</span>
+</div>
+<!-- Attachment 2 -->
+<div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline transition-colors flex-shrink-0 cursor-pointer">
+<div class="w-7 h-7 rounded-lg bg-[#DCFCE7] text-[#166534] flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px]">table_chart</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-medium truncate max-w-[130px]">ROAS_Sheet.xlsx</p>
+<p class="font-code-mono text-[10px] text-outline">480 KB · Meta Export</p>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline hover:text-primary ml-1">download</span>
+</div>
+<!-- Quick Upload button -->
+<button class="w-9 h-11 flex items-center justify-center rounded-xl border border-dashed border-outline hover:border-primary text-outline hover:text-primary flex-shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- 7. ACTIVITY & INTERNAL COMMENT FEED -->
+<div class="space-y-3 pt-1 border-t border-outline-variant/60">
+<div class="flex items-center justify-between">
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Activity &amp; Discussion</h4>
+<span class="font-label-sm text-label-sm text-outline">Internal Only</span>
+</div>
+<!-- Existing Comment -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-surface-container-low/50 border border-outline-variant/60">
+<div class="w-6 h-6 rounded-full overflow-hidden border border-outline-variant flex-shrink-0 bg-secondary-fixed">
+<img class="w-full h-full object-cover" data-alt="High detail headshot portrait of Jessica Chen, creative director, smiling subtly in a high-growth creative agency environment. Crisp light-mode aesthetics, soft studio shadows, executive elegance with a modern minimal navy and lime backdrop tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-WmCqtXIv-MKWuscPKjZQzLnKwpRakvVE0ERsqf_aQh7ACEAs7g1a5eT7JoOuUW071t2u727GclAPX3gPnfFA-LbAo08Abp1hw9Tm3ovleMldHebBN66gXcqXVzxgH8PJ2LH2px5K1rFZOMWxIgbQebaTgaNMVwCoB270lFBACoX7bw2S3pbS-sBIUXLKF4eXyPnHkcjICWokTG9BXcGfzd7AQSVQhffGN8iMcmpUyj1yJ4CHbctRmA"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Jessica Chen</span>
+<span class="font-code-mono text-[10px] text-outline">12m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+              Creative looks ready to scale! Make sure we monitor hook retain rate closely in the first 4 hours of the increased cap.
+            </p>
+</div>
+</div>
+<!-- Input Pill for New Internal Comment -->
+<div class="flex items-center gap-2 p-1.5 pl-3 bg-surface-container-lowest border border-outline-variant rounded-full focus-within:border-primary-container focus-within:ring-2 focus-within:ring-secondary-container/30 transition-all">
+<span class="material-symbols-outlined text-[18px] text-outline">chat_bubble_outline</span>
+<input class="flex-1 bg-transparent border-0 p-0 text-body-md font-body-md text-on-surface placeholder:text-outline focus:ring-0" placeholder="Add an internal comment..." type="text"/>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">alternate_email</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+</button>
+<!-- Send button -->
+<button class="w-8 h-8 rounded-full bg-secondary-container text-primary-container flex items-center justify-center font-bold hover:brightness-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Extra spacing at bottom for comfortable scrolling above fixed bar -->
+<div class="h-20"></div>
+</div>
+<!-- 8. BOTTOM ACTION BAR (Docked, High Priority Trigger) -->
+<div class="w-full flex-shrink-0 p-3.5 bg-surface-container-lowest border-t border-outline-variant flex items-center gap-3">
+<!-- Secondary Action: Log Time -->
+<button class="px-3.5 h-11 rounded-xl bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+<span>Log Time</span>
+</button>
+<!-- Primary Milestone CTA: 'Mark Complete' (Electric lime #9DD52C / secondary-container with dark navy #0B1F3A text) -->
+<button class="flex-1 h-11 rounded-xl bg-secondary-container text-primary-container font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2 hover:opacity-95 active:scale-[0.98] transition-all shadow-sm">
+<span class="material-symbols-outlined text-[20px] font-bold">check_circle</span>
+<span>Mark Complete</span>
+</button>
+</div>
+</div>
+</body></html>

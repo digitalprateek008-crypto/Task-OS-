@@ -1,0 +1,6 @@
+{
+  "name": "Agency OS",
+  "description": "Simple, premium Task Management System for digital marketing agencies with 15+ team members. Track tasks, clients, projects, team workload, and client approvals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
